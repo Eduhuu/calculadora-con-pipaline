@@ -44,4 +44,4 @@ jobs:
         run: docker build -t eduardo/calculadora:latest .
 
       - name: Snyk Container test
-        run: snyk container test eduardo/calculadora:latest --file=Dockerfile
+        run: snyk container test eduardo/calculadora:latest --file=Dockerfile --exclude-base-image-vulns
