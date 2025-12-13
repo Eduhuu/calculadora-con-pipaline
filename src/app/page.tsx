@@ -9,7 +9,7 @@ export default function Home() {
             Calculadora
           </h1>
           <p className="text-gray-400 text-sm">
-            Desarrollada con TDD + Next.js Server Actions
+            Desarrollada con TDD + Next.js Server Actions + Azure App Services + Docker + GitHub Actions
           </p>
         </div>
         
