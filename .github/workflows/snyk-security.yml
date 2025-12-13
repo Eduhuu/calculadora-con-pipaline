@@ -41,7 +41,7 @@ jobs:
 
       # 3) Docker: build + scan de imagen
       - name: Build Docker image
-        run: docker build -t ridery/app:ci .
+        run: docker build -t eduardo/calculadora:latest .
 
       - name: Snyk Container test
-        run: snyk container test ridery/app:ci --file=Dockerfile
+        run: snyk container test eduardo/calculadora:latest --file=Dockerfile

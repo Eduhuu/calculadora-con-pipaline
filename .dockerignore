@@ -1,0 +1,59 @@
+# Dependencias
+node_modules
+npm-debug.log
+
+# Testing
+coverage
+.nyc_output
+*.lcov
+
+# Next.js
+.next/
+out/
+build
+dist
+
+# Producción
+.vercel
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+*.log
+logs
+
+# Variables de entorno locales
+.env
+.env*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Git
+.git
+.gitignore
+.github
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# Documentación y otros
+README.md
+TDD-PROCESS.md
+*.md
+
+# Tests
+**/__tests__/**
+*.test.ts
+*.test.tsx
+*.spec.ts
+*.spec.tsx
+jest.config.js
+jest.setup.js
+
