@@ -16,9 +16,9 @@ export default function Home() {
         <Calculadora />
         
         <div className="text-center text-xs text-gray-500 space-y-1">
-          <p>✓ Pruebas unitarias con Jest</p>
-          <p>✓ Server Actions para operaciones</p>
-          <p>✓ Interfaz moderna con Tailwind CSS</p>
+          <p>Desarrollada por:</p>
+          <p>✓ Eduardo Suarez</p>
+          <p>✓ Daniel Lozano</p>
         </div>
       </main>
     </div>

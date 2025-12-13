@@ -149,11 +149,6 @@ export default function Calculadora() {
           ))}
         </div>
       </div>
-
-      {/* Info */}
-      <div className="mt-6 text-center text-sm text-gray-500">
-        <p>Calculadora con Server Actions + TDD</p>
-      </div>
     </div>
   );
 }
