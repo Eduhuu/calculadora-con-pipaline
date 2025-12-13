@@ -135,6 +135,39 @@ Pipeline de seguridad que analiza vulnerabilidades:
 
 Los resultados de seguridad se integran con **GitHub Security** (pestaña Security → Code scanning alerts).
 
+### 🎯 Ejemplo de CI/CD en Acción
+
+Para demostrar cómo el pipeline previene código defectuoso en producción, se creó la rama **`feature/division-by-zero`** con un error intencional en la función `dividir`:
+
+```typescript
+// Error intencional: dividir siempre entre 0
+return a / 0;  // ❌ Incorrecto
+```
+
+**Flujo del Pipeline:**
+
+1. **Rama creada**: `feature/division-by-zero`
+   - Código modificado intencionalmente para fallar
+   - División siempre retorna `Infinity` o `NaN`
+
+2. **Pull Request #1**: Intento de merge a `main`
+   - 🔴 **Estado**: Bloqueado
+   - ❌ **Jest Tests**: FAILED (8 de 8 tests fallaron)
+   - ⚠️ **Snyk Security**: Puede pasar (no detecta errores de lógica)
+
+3. **Resultado**: El PR no puede ser mergeado
+   - Los tests unitarios detectaron el error
+   - GitHub Actions bloquea el merge automáticamente
+   - Se requiere corrección del código para aprobar el PR
+
+**Lección**: Este ejemplo demuestra la importancia de:
+- ✅ Tests unitarios completos
+- ✅ CI/CD automatizado
+- ✅ Branch protection rules
+- ✅ Code review antes del merge
+
+El pipeline **previene que código defectuoso llegue a producción**, garantizando la calidad del código en la rama principal.
+
 ## 📖 Proceso de Desarrollo TDD
 
 Este proyecto fue desarrollado siguiendo la metodología **Test-Driven Development (TDD)**. Para conocer el proceso completo, los commits históricos y el flujo de trabajo Red-Green-Refactor, consulta:
