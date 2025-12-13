@@ -4,6 +4,8 @@
 # Etapa 1: Dependencias
 FROM node:20-alpine AS deps
 RUN apk add --no-cache libc6-compat
+# Actualizar npm a la última versión para corregir vulnerabilidades
+RUN npm install -g npm@latest
 WORKDIR /app
 
 # Copiar archivos de dependencias
@@ -12,6 +14,8 @@ RUN npm ci
 
 # Etapa 2: Build
 FROM node:20-alpine AS builder
+# Actualizar npm a la última versión para corregir vulnerabilidades
+RUN npm install -g npm@latest
 WORKDIR /app
 
 # Copiar dependencias desde la etapa anterior
@@ -27,6 +31,8 @@ RUN npm run build
 
 # Etapa 3: Runner (producción)
 FROM node:20-alpine AS runner
+# Actualizar npm a la última versión para corregir vulnerabilidades
+RUN npm install -g npm@latest
 WORKDIR /app
 
 ENV NODE_ENV=production
