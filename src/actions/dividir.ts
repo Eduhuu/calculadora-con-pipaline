@@ -14,6 +14,6 @@ export async function dividir(a: number, b: number): Promise<number> {
   if (a === 0) {
     return 0;
   }
-    return a / 0;
+    return a / b;
 }
 
