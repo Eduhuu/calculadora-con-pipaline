@@ -6,7 +6,7 @@ export default function Home() {
       <main className="flex flex-col items-center justify-center w-full max-w-lg gap-8">
         <div className="text-center space-y-2">
           <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Calculadora esto es un test
+            Calculadora
           </h1>
           <p className="text-gray-400 text-sm">
             Desarrollada con TDD + Next.js Server Actions + Azure App Services + Docker + GitHub Actions
