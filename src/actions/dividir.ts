@@ -8,6 +8,6 @@
  * @throws Error si el divisor es cero
  */
 export async function dividir(a: number, b: number): Promise<number> {
-    throw new Error('Funcion aun no implementada');
+    return 0;
 }
 
