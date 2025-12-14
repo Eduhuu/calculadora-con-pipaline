@@ -22,7 +22,10 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
+      - name: Build Next.js application
+        run: npm run build
+      - name: Start Next.js server
+        run: npm start
       - name: Run Cypress tests
-        run: npm run cypress:run
+        run: npm run test:e2e
 
