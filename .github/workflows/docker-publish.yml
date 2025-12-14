@@ -94,7 +94,7 @@ jobs:
         
   # Job 3: Docker Publish (solo si test y security pasan)
   docker-publish:
-    needs: [test, security]
+    needs: [test, security, cypress-test]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
