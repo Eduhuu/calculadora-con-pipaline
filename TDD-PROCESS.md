@@ -90,7 +90,7 @@ export async function dividir(a: number, b: number): Promise<number> {
 
 **Resultado**: ❌ Test FALLA (esperado 2, recibido 0)
 
-### 🟢 Fase GREEN - Commit 4
+### 🟢🔵 Fase GREEN + Refactor - Commit 4
 **Hash**: `338b973`  
 **Mensaje**: "create code in service to make division with two positive intergers work"
 
