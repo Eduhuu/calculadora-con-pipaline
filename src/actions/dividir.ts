@@ -11,7 +11,7 @@ import { ERROR_MESSAGES } from "../../constants/errors";
  */
 export async function dividir(a: number, b: number): Promise<{resultado: number | null, error: string | null}> {
   if (b === 0) {
-    return {resultado: -1, error: ERROR_MESSAGES.DIVISION_BY_ZERO};
+    return {resultado: null, error: ERROR_MESSAGES.DIVISION_BY_ZERO};
   }
   if (a === 0) {
     return {resultado: 0, error: null};
