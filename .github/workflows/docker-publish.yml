@@ -24,6 +24,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build Next.js application
+        run: npm run build
+
       - name: Run linter
         run: npm run lint
 
@@ -62,6 +65,33 @@ jobs:
       - name: Snyk Container test
         run: snyk container test temp/calculadora:latest --file=Dockerfile --exclude-base-image-vulns
 
+
+  cypress-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Build Next.js application
+        run: npm run build
+      - name: Start Next.js server
+        run: npm start &
+        env:
+          PORT: 3000
+      - name: Run Cypress tests
+        run: npm run test:e2e
+      - name: Upload Cypress screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          retention-days: 7
+        
   # Job 3: Docker Publish (solo si test y security pasan)
   docker-publish:
     needs: [test, security]
