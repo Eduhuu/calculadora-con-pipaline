@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { sumar, restar, multiplicar, dividir } from '@/actions';
+import { ERROR_MESSAGES } from '../../constants/errors';
 
 type Operacion = '+' | '-' | '*' | '/' | null;
 
@@ -72,7 +73,12 @@ export default function Calculadora() {
           resultado = await multiplicar(valorAnterior, valorActual);
           break;
         case '/':
-          resultado = await dividir(valorAnterior, valorActual);
+          const {resultado: rest, error} = await dividir(valorAnterior, valorActual);
+          if (error) {
+            setError(error);
+            return;
+          }
+          resultado = rest || 0;
           break;
         default:
           return;
@@ -83,7 +89,7 @@ export default function Calculadora() {
       setOperacion(null);
       setNuevoNumero(true);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Error en la operación');
+      setError(err instanceof Error ? err.message : ERROR_MESSAGES.DIVISION_BY_ZERO);
       setDisplay('0');
       setValorAnterior(null);
       setOperacion(null);
